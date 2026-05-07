@@ -370,10 +370,7 @@ export const useInteractionManager = () => {
       }
 
       const mouseTile = uiState.mouse.position.tile;
-      const itemAtTile = getItemAtTile({
-        tile: mouseTile,
-        scene
-      });
+      const itemAtTile = getItemAtTile({ tile: mouseTile, scene });
       const isAnyItemSelectedInLasso = (uiState.mode.type === 'LASSO' || uiState.mode.type === 'FREEHAND_LASSO') && !!uiState.mode.selection?.items.length;
 
       if (isAnyItemSelectedInLasso) {

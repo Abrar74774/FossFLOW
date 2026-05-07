@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { generateId, findNearestUnoccupiedTile } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
@@ -23,12 +23,14 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     return state.actions;
   });
 
+  const [ menuItemsBeforeClosing, setMenuItemsBeforeClosing ] = useState([{ label: '', onClick:() => {} }]);
+
   const onClose = useCallback(() => {
     uiStateActions.setContextMenu(null);
   }, [uiStateActions]);
 
   const menuItems = useMemo(() => {
-    if (!contextMenu) return []
+    if (!contextMenu) return menuItemsBeforeClosing
     if (contextMenu.type === 'SELECTION') {
       return [
         {
@@ -39,10 +41,18 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
           }
         }
       ]
-    } else if (contextMenu.type === 'ITEM') {
+    } else if (contextMenu.type === 'ITEM' && contextMenu.item) {
+      const { type } = contextMenu.item;
+      const itemTypeName = 
+        type === 'ITEM' ? 'Node' :
+        type === 'RECTANGLE' ? 'Rectangle' :
+        type === 'TEXTBOX' ? 'Text' :
+        undefined;
+      
+        if (!itemTypeName) return menuItemsBeforeClosing;
       return [
         {
-          label: `Copy ${contextMenu.item?.type}`,
+          label: `Copy ${itemTypeName}`,
           onClick: () => {
             alert('tryna copy')
             onClose();
@@ -95,7 +105,10 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
       }
     ]
   }, 
-  [contextMenu && contextMenu.type, contextMenu?.item])
+  [contextMenu && contextMenu.type, contextMenu?.item]);
+
+  useEffect(() => setMenuItemsBeforeClosing(menuItems), menuItems)
+
 
   return (
     <ContextMenu
