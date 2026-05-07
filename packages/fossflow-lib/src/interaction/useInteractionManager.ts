@@ -3,7 +3,7 @@ import { useModelStoreApi } from 'src/stores/modelStore';
 import { useUiStateStore, useUiStateStoreApi } from 'src/stores/uiStateStore';
 import { ModeActions, State, SlimMouseEvent, Mouse } from 'src/types';
 import { DialogTypeEnum } from 'src/types/ui';
-import { getMouse, getItemAtTile, generateId, incrementZoom, decrementZoom } from 'src/utils';
+import { getMouse, getItemAtTile, generateId, incrementZoom, decrementZoom, isPointInPolygon, isWithinBounds } from 'src/utils';
 import { useResizeObserver } from 'src/hooks/useResizeObserver';
 import { useScene } from 'src/hooks/useScene';
 import { useHistory } from 'src/hooks/useHistory';
@@ -369,21 +369,43 @@ export const useInteractionManager = () => {
         return;
       }
 
+      const mouseTile = uiState.mouse.position.tile;
       const itemAtTile = getItemAtTile({
-        tile: uiState.mouse.position.tile,
+        tile: mouseTile,
         scene
       });
+      const isAnyItemSelectedInLasso = (uiState.mode.type === 'LASSO' || uiState.mode.type === 'FREEHAND_LASSO') && !!uiState.mode.selection?.items.length;
+
+      if (isAnyItemSelectedInLasso) {
+        const isInsideLassoSelection = (
+          uiState.mode.type === 'LASSO' &&
+          uiState.mode.selection &&
+          isWithinBounds(mouseTile, [uiState.mode.selection.startTile, uiState.mode.selection.endTile])
+        ) || (
+          uiState.mode.type === 'FREEHAND_LASSO' &&
+          uiState.mode.selection &&
+          isPointInPolygon(mouseTile, uiState.mode.selection.pathTiles)
+        );
+
+        if (isInsideLassoSelection) {
+          uiState.actions.setContextMenu({
+            type: 'SELECTION',
+            tile: mouseTile
+          });
+          return;
+        } 
+      }
 
       if (itemAtTile) {
         uiState.actions.setContextMenu({
           type: 'ITEM',
           item: itemAtTile,
-          tile: uiState.mouse.position.tile
+          tile: mouseTile
         });
       } else {
         uiState.actions.setContextMenu({
           type: 'EMPTY',
-          tile: uiState.mouse.position.tile
+          tile: mouseTile
         });
       }
     },

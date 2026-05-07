@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { generateId, findNearestUnoccupiedTile } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
@@ -27,54 +27,81 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     uiStateActions.setContextMenu(null);
   }, [uiStateActions]);
 
+  const menuItems = useMemo(() => {
+    if (!contextMenu) return []
+    if (contextMenu.type === 'SELECTION') {
+      return [
+        {
+          label: 'Copy Selected',
+          onClick: () => {
+            alert('tryna copy')
+            onClose();
+          }
+        }
+      ]
+    } else if (contextMenu.type === 'ITEM') {
+      return [
+        {
+          label: `Copy ${contextMenu.item?.type}`,
+          onClick: () => {
+            alert('tryna copy')
+            onClose();
+          }
+        }
+      ]
+    }
+    return [
+      {
+        label: 'Add Node',
+        onClick: () => {
+          if (!contextMenu) return;
+          if (model.icons.length > 0) {
+            const modelItemId = generateId();
+            const firstIcon = model.icons[0];
+            
+            // Find nearest unoccupied tile (should return the same tile since context menu is for empty tiles)
+            const targetTile = findNearestUnoccupiedTile(contextMenu.tile, scene) || contextMenu.tile;
+
+            scene.placeIcon({
+              modelItem: {
+                id: modelItemId,
+                name: 'Untitled',
+                icon: firstIcon.id
+              },
+              viewItem: {
+                ...VIEW_ITEM_DEFAULTS,
+                id: modelItemId,
+                tile: targetTile
+              }
+            });
+          }
+          onClose();
+        }
+      },
+      {
+        label: 'Add Rectangle',
+        onClick: () => {
+          if (!contextMenu) return;
+          if (model.colors.length > 0) {
+            scene.createRectangle({
+              id: generateId(),
+              color: model.colors[0].id,
+              from: contextMenu.tile,
+              to: contextMenu.tile
+            });
+          }
+          onClose();
+        }
+      }
+    ]
+  }, 
+  [contextMenu && contextMenu.type, contextMenu?.item])
+
   return (
     <ContextMenu
       anchorEl={anchorEl}
       onClose={onClose}
-      menuItems={[
-        {
-          label: 'Add Node',
-          onClick: () => {
-            if (!contextMenu) return;
-            if (model.icons.length > 0) {
-              const modelItemId = generateId();
-              const firstIcon = model.icons[0];
-              
-              // Find nearest unoccupied tile (should return the same tile since context menu is for empty tiles)
-              const targetTile = findNearestUnoccupiedTile(contextMenu.tile, scene) || contextMenu.tile;
-
-              scene.placeIcon({
-                modelItem: {
-                  id: modelItemId,
-                  name: 'Untitled',
-                  icon: firstIcon.id
-                },
-                viewItem: {
-                  ...VIEW_ITEM_DEFAULTS,
-                  id: modelItemId,
-                  tile: targetTile
-                }
-              });
-            }
-            onClose();
-          }
-        },
-        {
-          label: 'Add Rectangle',
-          onClick: () => {
-            if (!contextMenu) return;
-            if (model.colors.length > 0) {
-              scene.createRectangle({
-                id: generateId(),
-                color: model.colors[0].id,
-                from: contextMenu.tile,
-                to: contextMenu.tile
-              });
-            }
-            onClose();
-          }
-        }
-      ]}
+      menuItems={menuItems}
     />
   );
 

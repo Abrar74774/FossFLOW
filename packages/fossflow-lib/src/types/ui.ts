@@ -162,7 +162,7 @@ export const DialogTypeEnum = {
 } as const;
 
 export interface ContextMenu {
-  type: 'ITEM' | 'EMPTY';
+  type: 'ITEM' | 'EMPTY' | 'SELECTION';
   item?: ItemReference;
   tile: Coords;
 }
