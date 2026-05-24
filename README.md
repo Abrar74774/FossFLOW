@@ -10,7 +10,7 @@
 </p>
 
 ## Note:
-This repo is a fork of stan-smith/FossFLOW originally made for the purpose of contributing to the original repo through PRs, however the username of the author seems to have been changed to [mug-book-droid](https://github.com/mug-book-droid) and their activity set to private (account suspended maybe?), making the original repo inaccessible.
+This repo is a fork of stan-smith/FossFLOW (which in turn was a fork of [markmanx/isoflow](https://github.com/markmanx/isoflow)) originally made for the purpose of contributing to the original repo through PRs, however the username of the author seems to have been changed to [mug-book-droid](https://github.com/mug-book-droid) and their activity set to private (account suspended maybe?), making the original repo inaccessible.
 
 For now, I intend to make the `dev` branch in this repo a continuation of development to FossFLOW from myself, and any contributions through PRs are welcome as well. 
 
