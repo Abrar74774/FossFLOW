@@ -177,6 +177,7 @@ Response: { success: boolean }
 - `ENABLE_SERVER_STORAGE`: Enable/disable storage endpoints (default: `true`)
 - `STORAGE_PATH`: Directory for diagram files (default: `/data/diagrams`)
 - `BACKEND_PORT`: Server port (default: `3001`)
+- `BACKEND_HOST`: Server host (default: `0.0.0.0`)
 - `ENABLE_GIT_BACKUP`: Enable Git version control (default: `false`)
 
 ### Storage Format
