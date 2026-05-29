@@ -13,6 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.BACKEND_PORT || 3001;
+const HOST = process.env.BACKEND_HOST || '0.0.0.0';
 
 const STORAGE_ENABLED = process.env.ENABLE_SERVER_STORAGE === 'true';
 const STORAGE_PATH = path.resolve(process.env.STORAGE_PATH || '/data/diagrams');
@@ -230,8 +231,8 @@ if (STORAGE_ENABLED) {
 }
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`FossFLOW Backend Server running on port ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`FossFLOW Backend Server running on ${HOST}:${PORT}`);
   console.log(`Server storage: ${STORAGE_ENABLED ? 'ENABLED' : 'DISABLED'}`);
   if (STORAGE_ENABLED) {
     console.log(`Storage path: ${STORAGE_PATH}`);

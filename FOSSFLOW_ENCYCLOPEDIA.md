@@ -131,6 +131,7 @@ The backend package provides server-side storage capabilities, allowing diagrams
 #### Server (`server.js`)
 - **Technology**: Express.js with ES modules
 - **Port**: 3001 (configurable via `BACKEND_PORT`)
+- **Host**: 0.0.0.0 (configurable via `BACKEND_HOST`)
 - **Features**:
   - CORS enabled for cross-origin requests
   - 10MB JSON payload limit for large diagrams
