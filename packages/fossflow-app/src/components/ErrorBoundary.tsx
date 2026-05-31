@@ -21,7 +21,7 @@ export default function ErrorBoundaryFallbackUI({
     };
 
     const githubUrl = new URL(
-      'https://github.com/stan-smith/FossFLOW/issues/new'
+      'https://github.com/Abrar74774/FossFLOW/issues/new'
     );
     githubUrl.searchParams.set('title', `Error: ${error.message}`);
     githubUrl.searchParams.set(
@@ -84,7 +84,7 @@ export default function ErrorBoundaryFallbackUI({
             <li>
               Check if this error has already been reported{' '}
               <a
-                href="https://github.com/stan-smith/FossFLOW/issues"
+                href="https://github.com/Abrar74774/FossFLOW/issues"
                 target="_"
               >
                 here👀

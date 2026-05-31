@@ -29,7 +29,7 @@ FossFLOW est une puissante Progressive Web App (PWA) open-source pour créer de 
 
 ![Screenshot_20250630_160954](https://github.com/user-attachments/assets/e7f254ad-625f-4b8a-8efc-5293b5be9d55)
 
-- **🤝 [CONTRIBUTORS.md](https://github.com/stan-smith/FossFLOW/blob/master/CONTRIBUTORS.md)** - Comment contribuer au projet.
+- **🤝 [CONTRIBUTORS.md](https://github.com/Abrar74774/FossFLOW/blob/master/CONTRIBUTORS.md)** - Comment contribuer au projet.
 
 ## Mises à Jour Récentes (Octobre 2025)
 
@@ -117,7 +117,7 @@ docker run -p 80:80 -e ENABLE_SERVER_STORAGE=false stnsmith/fossflow:latest
 
 ```bash
 # Cloner le référentiel
-git clone https://github.com/stan-smith/FossFLOW
+git clone https://github.com/Abrar74774/FossFLOW
 cd FossFLOW
 
 # Installer les dépendances

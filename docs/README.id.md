@@ -29,7 +29,7 @@ FossFLOW adalah aplikasi web progresif (PWA) open-source yang powerful untuk mem
 
 ![Screenshot_20250630_160954](https://github.com/user-attachments/assets/e7f254ad-625f-4b8a-8efc-5293b5be9d55)
 
-- **🤝 [CONTRIBUTORS.md](https://github.com/stan-smith/FossFLOW/blob/master/CONTRIBUTORS.md)** - Cara berkontribusi pada proyek.
+- **🤝 [CONTRIBUTORS.md](https://github.com/Abrar74774/FossFLOW/blob/master/CONTRIBUTORS.md)** - Cara berkontribusi pada proyek.
 
 ## Pembaruan Terbaru (Oktober 2025)
 
@@ -105,7 +105,7 @@ docker run -p 80:80 -e ENABLE_SERVER_STORAGE=false stnsmith/fossflow:latest
 
 ```bash
 # Clone repositori
-git clone https://github.com/stan-smith/FossFLOW
+git clone https://github.com/Abrar74774/FossFLOW
 cd FossFLOW
 
 # Install dependensi

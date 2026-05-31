@@ -25,7 +25,7 @@ body:
           required: true
         - label: This feature is within the scope described above
           required: true
-        - label: I have checked [Discussions](https://github.com/stan-smith/FossFLOW/discussions) for related topics
+        - label: I have checked [Discussions](https://github.com/Abrar74774/FossFLOW/discussions) for related topics
           required: true
 
   - type: textarea

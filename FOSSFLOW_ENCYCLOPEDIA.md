@@ -757,7 +757,7 @@ COPY --from=build /app/packages/fossflow-app/build /app/frontend
 
 1. **Clone and Install**:
 ```bash
-git clone https://github.com/stan-smith/FossFLOW
+git clone https://github.com/Abrar74774/FossFLOW
 cd FossFLOW
 npm install  # Installs dependencies for all workspaces
 ```

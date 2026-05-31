@@ -21,7 +21,7 @@
 
 ## এটি অনলাইনে চেষ্টা করুন
 
-যান  <b> --> https://stan-smith.github.io/FossFLOW/ <-- </b>
+যান  <b> --> https://abrar74774.github.io/FossFLOW/ <-- </b>
 
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ FossFLOW হল সুন্দর আইসোমেট্রিক ডায�
 
 ![Screenshot_20250630_160954](https://github.com/user-attachments/assets/e7f254ad-625f-4b8a-8efc-5293b5be9d55)
 
-- **🤝 [CONTRIBUTORS.md](https://github.com/stan-smith/FossFLOW/blob/master/CONTRIBUTORS.md)** - প্রকল্পে কীভাবে অবদান রাখবেন।
+- **🤝 [CONTRIBUTORS.md](https://github.com/Abrar74774/FossFLOW/blob/master/CONTRIBUTORS.md)** - প্রকল্পে কীভাবে অবদান রাখবেন।
 
 ## সাম্প্রতিক আপডেট (অক্টোবর 2025)
 
@@ -117,7 +117,7 @@ docker run -p 80:80 -e ENABLE_SERVER_STORAGE=false stnsmith/fossflow:latest
 
 ```bash
 # রিপোজিটরি ক্লোন করুন
-git clone https://github.com/stan-smith/FossFLOW
+git clone https://github.com/Abrar74774/FossFLOW
 cd FossFLOW
 
 # নির্ভরতা ইনস্টল করুন
