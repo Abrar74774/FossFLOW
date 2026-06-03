@@ -1,6 +1,6 @@
 {
   "branches": ["master", "main"],
-  "repositoryUrl": "https://github.com/stan-smith/FossFLOW.git",
+  "repositoryUrl": "https://github.com/Abrar74774/FossFLOW.git",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
