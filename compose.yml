@@ -1,6 +1,6 @@
 services:
   fossflow:
-    image: stnsmith/fossflow:latest
+    image: abrar74774/fossflow:latest
     pull_policy: always
     ports:
       - 80:80
