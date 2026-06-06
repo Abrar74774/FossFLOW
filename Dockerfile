@@ -9,9 +9,6 @@ COPY package*.json ./
 COPY packages/fossflow-lib/package*.json ./packages/fossflow-lib/
 COPY packages/fossflow-app/package*.json ./packages/fossflow-app/
 
-#Update NPM
-RUN npm install -g npm@11.5.2
-
 # Install dependencies for the entire workspace
 RUN npm install
 
@@ -29,6 +26,9 @@ RUN apk add --no-cache nginx openssl su-exec
 
 # Copy backend code
 COPY --from=build /app/packages/fossflow-backend /app/packages/fossflow-backend
+
+WORKDIR /app/packages/fossflow-backend
+RUN npm install --omit=dev
 
 # Copy the built React app to Nginx's web server directory
 COPY --from=build /app/packages/fossflow-app/build /usr/share/nginx/html

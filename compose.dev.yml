@@ -11,5 +11,7 @@ services:
       - ENABLE_GIT_BACKUP=false
       - HTTP_AUTH_USER=${HTTP_AUTH_USER:-}
       - HTTP_AUTH_PASSWORD=${HTTP_AUTH_PASSWORD:-}
+      - PUID=${PUID:-}
+      - PGID=${PGID:-}
     volumes:
       - ./diagrams:/data/diagrams

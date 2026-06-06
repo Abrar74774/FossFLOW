@@ -1,8 +1,7 @@
 services:
   fossflow:
-    # image: abrar74774/fossflow:latest
-    # pull_policy: always
-    build: .
+    image: abrar74774/fossflow:latest
+    pull_policy: always
     ports:
       - 80:80
     environment:
