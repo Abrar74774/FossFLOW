@@ -457,7 +457,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t fossflow:local .
 docker compose up
 
 # Or pull from Docker Hub
-docker run -p 80:80 stnsmith/fossflow:latest
+docker run -p 80:80 abrar74774/fossflow:latest
 ```
 
 ## Community
