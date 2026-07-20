@@ -477,7 +477,8 @@ function EditorPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${diagramName || 'diagram'}-${new Date().toISOString().split('T')[0]}.json`;
+    const exportTimestamp = new Date().toISOString().replace(/[:T]/g, '-').split('.')[0];
+    a.download = `${diagramName || 'diagram'}-${exportTimestamp}.json`;
     a.click();
     URL.revokeObjectURL(url);
 
