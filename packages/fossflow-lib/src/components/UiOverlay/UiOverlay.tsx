@@ -266,16 +266,14 @@ export const UiOverlay = () => {
       {iconPackManager && <LazyLoadingWelcomeNotification />}
 
       <SceneLayer>
-        {contextMenu && (
-          <Box 
-            ref={contextMenuAnchorRef} 
-            sx={{
-              position: 'absolute',
-              left: getTilePosition({ tile: contextMenu.tile }).x,
-              top: getTilePosition({ tile: contextMenu.tile }).y
-            }}
-          />
-        )}
+        <Box 
+          ref={contextMenuAnchorRef} 
+          sx={{
+            position: 'absolute',
+            left: contextMenu ? getTilePosition({ tile: contextMenu.tile }).x : 0,
+            top: contextMenu ? getTilePosition({ tile: contextMenu.tile }).y : 0
+          }}
+        />
         <ContextMenuManager anchorEl={contextMenu ? contextMenuAnchorRef.current : null} />
       </SceneLayer>
     </>

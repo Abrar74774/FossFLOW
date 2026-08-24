@@ -406,7 +406,7 @@ export const useInteractionManager = () => {
         });
       }
     },
-    [uiStateApi, scene]
+    [uiStateApi.getState(), scene]
   );
 
   useEffect(() => {
