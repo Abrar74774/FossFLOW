@@ -5,6 +5,12 @@ All notable changes to FossFLOW will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4](https://github.com/Abrar74774/FossFLOW/compare/v1.0.3...v1.0.4) (2026-08-24)
+
+### Bug Fixes
+
+* resolve bug where context menu shows only on mousemove ([#18](https://github.com/Abrar74774/FossFLOW/issues/18)) ([af84270](https://github.com/Abrar74774/FossFLOW/commit/af84270d95d60034d42518dc57e1cf5e5afaa5d9))
+
 ## [1.0.3](https://github.com/Abrar74774/FossFLOW/compare/v1.0.2...v1.0.3) (2026-07-21)
 
 ### Bug Fixes
