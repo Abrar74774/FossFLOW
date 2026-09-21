@@ -48,6 +48,13 @@ To disable server storage, set `ENABLE_SERVER_STORAGE=false`:
 docker run -p 80:80 -e ENABLE_SERVER_STORAGE=false abrar74774/fossflow:latest
 ```
 
+### Easypanel
+
+[Easypanel](https://easypanel.io) is a self-hosted Docker deployment platform with a one-click FossFLOW template:
+
+[![Deploy on Easypanel](https://easypanel.io/img/deploy-on-easypanel-40.svg)](https://easypanel.io/templates/fossflow)
+
+
 ### HTTP Basic Authentication (Optional)
 
 Protect your FossFLOW instance with HTTP Basic Auth:
