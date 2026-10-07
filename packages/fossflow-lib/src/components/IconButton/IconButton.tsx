@@ -21,12 +21,8 @@ export const IconButton = ({
 }: Props) => {
   const theme = useTheme();
   const iconColor = useMemo(() => {
-    if (isActive) {
+    if (isActive || disabled) {
       return 'grey.200';
-    }
-
-    if (disabled) {
-      return 'grey.800';
     }
 
     return 'grey.500';
