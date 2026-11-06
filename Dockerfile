@@ -21,14 +21,16 @@ RUN npm run build:lib && npm run build:app
 # Use Node with nginx for production
 FROM node:24-alpine
 
-# Install web server packages
-RUN apk add --no-cache nginx openssl su-exec
+# Install web server packages, with the Alpine fixes released after the base image
+RUN apk upgrade --no-cache && apk add --no-cache nginx openssl su-exec
 
 # Copy backend code
 COPY --from=build /app/packages/fossflow-backend /app/packages/fossflow-backend
 
 WORKDIR /app/packages/fossflow-backend
-RUN npm install --omit=dev
+# npm is only needed to install the backend dependencies: remove it, and the packages it bundles
+RUN npm install --omit=dev && npm cache clean --force && \
+    rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 
 # Copy the built React app to Nginx's web server directory
 COPY --from=build /app/packages/fossflow-app/build /usr/share/nginx/html
