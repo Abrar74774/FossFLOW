@@ -5,6 +5,12 @@ All notable changes to FossFLOW will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6](https://github.com/Abrar74774/FossFLOW/compare/v1.0.5...v1.0.6) (2026-11-06)
+
+### Bug Fixes
+
+* update vulnerable dependencies and the Docker image ([#24](https://github.com/Abrar74774/FossFLOW/issues/24)) ([b06baad](https://github.com/Abrar74774/FossFLOW/commit/b06baade1c48e3eb222cbd130b201051b13041a6))
+
 ## [1.0.5](https://github.com/Abrar74774/FossFLOW/compare/v1.0.4...v1.0.5) (2026-10-07)
 
 ### Bug Fixes
